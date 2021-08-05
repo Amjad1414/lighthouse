@@ -4,6 +4,8 @@
  * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
  */
 
+import ArbitraryEqualityMap = require('../lighthouse-core/lib/arbitrary-equality-map.js');
+import {Artifacts} from './artifacts';
 import AuditDetails from './audit-details';
 import Config from './config';
 import Gatherer from './gatherer';
@@ -21,7 +23,7 @@ declare module Audit {
      * the computed artifact's `name` property, then on input artifact(s).
      * Values are Promises resolving to the computedArtifact result.
      */
-    computedCache: Map<string, LH.ArbitraryEqualityMap>;
+    computedCache: Map<string, ArbitraryEqualityMap>;
   }>;
 
   interface ScoreOptions {
@@ -56,9 +58,9 @@ declare module Audit {
     /** A more detailed description that describes why the audit is important and links to Lighthouse documentation on the audit; markdown links supported. */
     description: string | IcuMessage;
     /** A list of the members of LH.Artifacts that must be present for the audit to execute. */
-    requiredArtifacts: Array<keyof LH.Artifacts>;
+    requiredArtifacts: Array<keyof Artifacts>;
     /** A list of the members of LH.Artifacts that augment the audit, but aren't necessary. For internal use only with experimental-config. */
-    __internalOptionalArtifacts?: Array<keyof LH.Artifacts>;
+    __internalOptionalArtifacts?: Array<keyof Artifacts>;
     /** A string identifying how the score should be interpreted for display. */
     scoreDisplayMode?: Audit.ScoreDisplayMode;
     /** A list of gather modes that this audit is applicable to. */
@@ -147,8 +149,8 @@ declare module Audit {
     [metric: string]: Result;
   }
 
-  type MultiCheckAuditP1 = Partial<Record<LH.Artifacts.ManifestValueCheckID, boolean>>;
-  type MultiCheckAuditP2 = Partial<LH.Artifacts.ManifestValues>;
+  type MultiCheckAuditP1 = Partial<Record<Artifacts.ManifestValueCheckID, boolean>>;
+  type MultiCheckAuditP2 = Partial<Artifacts.ManifestValues>;
   interface MultiCheckAuditP3 {
     failures: Array<string>;
     manifestValues?: undefined;

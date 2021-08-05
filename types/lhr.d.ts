@@ -4,6 +4,7 @@
  * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
  */
 
+import {Artifacts} from './artifacts';
 import Audit from './audit';
 import Config from './config';
 import {I18NRendererStrings, IcuMessagePaths} from './i18n';
@@ -59,7 +60,7 @@ declare module Result {
   }
 
   interface Timing {
-    entries: LH.Artifacts.MeasureEntry[];
+    entries: Artifacts.MeasureEntry[];
     total: number;
   }
 

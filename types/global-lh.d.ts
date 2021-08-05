@@ -4,6 +4,8 @@
  * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
  */
 
+import ArbitraryEqualityMap_ = require('../lighthouse-core/lib/arbitrary-equality-map.js');
+import * as Artifacts_ from './artifacts';
 import Audit_ from './audit';
 import Budget_ from './budget';
 import Config_ from './config';
@@ -19,6 +21,15 @@ import Treemap_ from './treemap';
 // Construct hierarchy of global types under the LH namespace.
 declare global {
   module LH {
+    export type ArbitraryEqualityMap = ArbitraryEqualityMap_;
+
+    // artifacts.d.ts
+    export import Artifacts = Artifacts_.Artifacts;
+    export import BaseArtifacts = Artifacts_.BaseArtifacts;
+    export import FRArtifacts = Artifacts_.FRArtifacts;
+    export import FRBaseArtifacts = Artifacts_.FRBaseArtifacts;
+    export import GathererArtifacts = Artifacts_.GathererArtifacts;
+
     export import Audit = Audit_;
     export import Budget = Budget_;
     export import Config = Config_;

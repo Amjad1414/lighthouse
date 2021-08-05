@@ -8,6 +8,7 @@ import _Crdp from 'devtools-protocol/types/protocol';
 import _CrdpMappings from 'devtools-protocol/types/protocol-mapping';
 import {ParseSelectorToTagNames} from 'typed-query-selector/parser';
 
+import {Artifacts} from './artifacts';
 import Budget from './budget';
 import LHResult from './lhr';
 import Protocol from './protocol';

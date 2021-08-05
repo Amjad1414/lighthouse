@@ -4,6 +4,7 @@
  * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
  */
 
+import {Artifacts} from './artifacts';
 import Config from './config';
 import LHResult from './lhr';
 
@@ -22,7 +23,7 @@ declare global {
 
     export type ExpectedRunnerResult = {
       lhr: ExpectedLHR,
-      artifacts?: Partial<Record<keyof LH.Artifacts|'_maxChromiumMilestone'|'_minChromiumMilestone', any>>
+      artifacts?: Partial<Record<keyof Artifacts|'_maxChromiumMilestone'|'_minChromiumMilestone', any>>
       networkRequests?: {length: number};
     }
 
@@ -47,7 +48,7 @@ declare global {
       {expectations: Smokehouse.ExpectedRunnerResult | Array<Smokehouse.ExpectedRunnerResult>}
 
     export type LighthouseRunner =
-      (url: string, configJson?: Config.Json, runnerOptions?: {isDebug?: boolean; useFraggleRock?: boolean}) => Promise<{lhr: LHResult, artifacts: LH.Artifacts, log: string}>;
+      (url: string, configJson?: Config.Json, runnerOptions?: {isDebug?: boolean; useFraggleRock?: boolean}) => Promise<{lhr: LHResult, artifacts: Artifacts, log: string}>;
 
     export interface SmokehouseOptions {
       /** If true, performs extra logging from the test runs. */
