@@ -4,6 +4,7 @@
  * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
  */
 
+import Config from './config';
 import LHResult from './lhr';
 
 declare global {
@@ -31,7 +32,7 @@ declare global {
       /** Expected test results. */
       expectations: ExpectedRunnerResult;
       /** An optional custom config. If none is present, uses the default Lighthouse config. */
-      config?: LH.Config.Json;
+      config?: Config.Json;
       /** If test is performance sensitive, set to true so that it won't be run parallel to other tests. */
       runSerially?: boolean;
     }
@@ -46,7 +47,7 @@ declare global {
       {expectations: Smokehouse.ExpectedRunnerResult | Array<Smokehouse.ExpectedRunnerResult>}
 
     export type LighthouseRunner =
-      (url: string, configJson?: LH.Config.Json, runnerOptions?: {isDebug?: boolean; useFraggleRock?: boolean}) => Promise<{lhr: LHResult, artifacts: LH.Artifacts, log: string}>;
+      (url: string, configJson?: Config.Json, runnerOptions?: {isDebug?: boolean; useFraggleRock?: boolean}) => Promise<{lhr: LHResult, artifacts: LH.Artifacts, log: string}>;
 
     export interface SmokehouseOptions {
       /** If true, performs extra logging from the test runs. */

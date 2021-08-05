@@ -12,6 +12,7 @@ import ExecutionContext = require('../lighthouse-core/gather/driver/execution-co
 import Fetcher = require('../lighthouse-core/gather/fetcher');
 import ArbitraryEqualityMap = require('../lighthouse-core/lib/arbitrary-equality-map');
 
+import Config from './config';
 import {IcuMessage} from './i18n';
 import Protocol from './protocol';
 
@@ -49,7 +50,7 @@ declare module Gatherer {
     /** The set of available dependencies requested by the current gatherer. */
     dependencies: Pick<LH.GathererArtifacts, Exclude<TDependencies, DefaultDependenciesKey>>;
     /** The settings used for gathering. */
-    settings: LH.Config.Settings;
+    settings: Config.Settings;
   }
 
   interface PassContext {
@@ -57,8 +58,8 @@ declare module Gatherer {
     /** The url of the currently loaded page. If the main document redirects, this will be updated to keep track. */
     url: string;
     driver: Driver;
-    passConfig: LH.Config.Pass
-    settings: LH.Config.Settings;
+    passConfig: Config.Pass
+    settings: Config.Settings;
     computedCache: Map<string, ArbitraryEqualityMap>
     /** Gatherers can push to this array to add top-level warnings to the LHR. */
     LighthouseRunWarnings: Array<string | IcuMessage>;

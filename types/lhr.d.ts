@@ -5,6 +5,7 @@
  */
 
 import Audit from './audit';
+import Config from './config';
 import {I18NRendererStrings, IcuMessagePaths} from './i18n';
 
 /**
@@ -27,7 +28,7 @@ interface Result {
   categoryGroups?: Record<string, Result.ReportGroup>;
 
   /** The config settings used for these results. */
-  configSettings: LH.Config.Settings;
+  configSettings: Config.Settings;
   /** List of top-level warnings for this Lighthouse run. */
   runWarnings: string[];
   /** A top-level error message that, if present, indicates a serious enough problem that this Lighthouse result may need to be discarded. */

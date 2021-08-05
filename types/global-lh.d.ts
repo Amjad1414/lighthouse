@@ -6,6 +6,7 @@
 
 import Audit_ from './audit';
 import Budget_ from './budget';
+import Config_ from './config';
 import Gatherer_ from './gatherer';
 import * as I18n from './i18n';
 import LHError = require('../lighthouse-core/lib/lh-error.js');
@@ -20,6 +21,7 @@ declare global {
   module LH {
     export import Audit = Audit_;
     export import Budget = Budget_;
+    export import Config = Config_;
     export import Gatherer = Gatherer_;
     export import LighthouseError = LHError;
     export import Result = LHResult;

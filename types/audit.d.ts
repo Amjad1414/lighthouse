@@ -5,6 +5,7 @@
  */
 
 import AuditDetails from './audit-details';
+import Config from './config';
 import Gatherer from './gatherer';
 import {FormattedIcu, IcuMessage} from './i18n';
 
@@ -14,7 +15,7 @@ declare module Audit {
   type Context = Immutable<{
     /** audit options */
     options: Record<string, any>;
-    settings: LH.Config.Settings;
+    settings: Config.Settings;
     /**
      * Nested cache for already-computed computed artifacts. Keyed first on
      * the computed artifact's `name` property, then on input artifact(s).

@@ -13,6 +13,7 @@ import _ArbitraryEqualityMap = require('../lighthouse-core/lib/arbitrary-equalit
 
 type _TaskNode = import('../lighthouse-core/lib/tracehouse/main-thread-tasks.js').TaskNode;
 
+import Config from './config';
 import Gatherer from './gatherer';
 import {IcuMessage} from './i18n';
 
